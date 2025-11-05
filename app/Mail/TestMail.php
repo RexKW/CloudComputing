@@ -30,9 +30,9 @@ class TestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->data['subject'],
+            subject: 'Registration Successfull',
             from: "admin@rex.lafamiglia.my.id",
-            to: $this->data["email"],
+            to: $this->data["studentEmail"],
         );
     }
 

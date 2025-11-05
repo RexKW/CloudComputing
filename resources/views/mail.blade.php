@@ -14,11 +14,11 @@
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"
                 class="mx-auto h-10 w-auto" />
-            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
+            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Contact Us</h2>
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form action="{{ route('ssend-email') }}" method="POST" class="space-y-6"  autocomplete="off">
+            <form action="{{ route('send-email') }}" method="POST" class="space-y-6"  autocomplete="off">
                 @csrf
                 @method('post')
 
@@ -58,14 +58,20 @@
 
                 <div>
                     <button type="submit"
-                        class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign
-                        in</button>
+                        class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Message</button>
                 </div>
             </form>
 
-            @if (session('error'))
-                <div class="mb-4 mt-5 rounded-md bg-red-500/10 p-4 text-sm text-red-400 border border-red-500/30">
-                    {{ session('error') }}
+            @if(session('success'))
+                <div class="mt-4 rounded-md border border-green-400 bg-green-100 px-4 py-3 text-sm text-green-700" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <!-- Error Message (Replaces the old alert) -->
+            @if(session('error'))
+                <div class="mt-4 rounded-md border border-red-400 bg-red-100 px-4 py-3 text-sm text-red-700" role="alert">
+                    <p>Error</p>
                 </div>
             @endif
 
