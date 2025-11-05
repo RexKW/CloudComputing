@@ -41,6 +41,9 @@ jobs:
       - name: Package for deployment
         run: zip -r deploy.zip . -x "*.git*" "node_modules/*" ".env" "storage/*"
 
+      - name: Verify zip file size
+        run: ls -lh deploy.zip
+
       # 7️⃣ Setup SSH using SERVER_KEY
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
