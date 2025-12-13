@@ -58,6 +58,6 @@ jobs:
             cd /home/${{ secrets.SERVER_USERNAME }}/web/rex.lafamiglia.my.id/public_html &&
             unzip -o /home/${{ secrets.SERVER_USERNAME }}/deploy.zip &&
             rm /home/${{ secrets.SERVER_USERNAME }}/deploy.zip &&
-            php artisan optimize
+            php artisan optimize:clear
           "
 
